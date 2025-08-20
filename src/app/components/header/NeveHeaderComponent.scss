@@ -38,11 +38,13 @@
         }
     }
     // links
+    a{
+        border: 2px solid transparent;
+    }
     a, .toggle-menu{
         height: 20px;
     }
     a:hover, .toggle-menu:hover{
-        border: 2px solid transparent;
         text-decoration-color: var(--link-hover); 
         transition: text-decoration-color transparent 0.9s ease;
     }
@@ -56,5 +58,10 @@
     }
     a:focus, button:focus{
         border: 2px solid var(--focus);
+    }
+}
+@media (max-width: 640px){
+    .header-label{
+        display: none;
     }
 }
