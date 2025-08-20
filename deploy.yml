@@ -26,7 +26,8 @@ jobs:
         run: npm run build -- --prod
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v6
-        with:
-          github_token: ${{ secrets.GH_PAT }}
+          uses: peaceiris/actions-gh-pages@v6
+          with:
+          personal_token: ${{ secrets.GH_PAT }}
           publish_dir: ./dist/neve
+          publish_branch: gh-pages
