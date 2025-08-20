@@ -1,0 +1,33 @@
+@use '../../../styles//mixins.scss' as *;
+.footer-nav-container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    .nav-label{
+        color: var(--gray2);
+        text-transform: uppercase;
+        @include font('Default', 400, normal, 20px);
+    }
+    .footer-links{
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-s);
+        .link-parent{
+            // margin-bottom: var(--spacing-xs);
+        }
+        .link-parent:hover, .link-child:hover{
+            color: var(--hover);
+        }
+        .footer-secondary-links{
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            a{
+                text-transform: capitalize;
+                @include font('Default', 400, normal, 15px);
+                line-height: 15px;
+                letter-spacing: 0.15px;
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+@use '../../../styles/mixins.scss' as *;
+// cards
+.neve-card{
+    width: auto;
+    height: max-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    img{
+        max-width: 100%;
+        background-size: cover;
+        object-fit: cover;
+        aspect-ratio: 4 / 3;
+        filter: grayscale(100%);
+        transition: filter 0.5s ease;
+    }
+
+    .card-date{
+        position: absolute;
+        top: var(--spacing-xs);
+        left: var(--spacing-xs);
+        background-color: var(--black);
+        color: var(--light);
+        padding: var(--spacing-xxs) var(--spacing-xs);
+        line-height: 20px;
+        @include font('Default', 400, normal, 20px);
+        text-transform: uppercase; 
+    }
+    .card-categories{
+        display: flex;
+        gap: var(--spacing-xs);
+        .card-category{
+            line-height: 20px;
+            @include font('Default', 400, normal, 20px);
+            text-transform: uppercase; 
+        }
+
+    }
+}
+.neve-card:hover{
+    .card-desc{
+        color: var(--focus);
+    }
+    img{
+        filter: grayscale(0%);
+    }
+}

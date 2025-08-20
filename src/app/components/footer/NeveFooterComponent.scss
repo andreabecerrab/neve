@@ -1,0 +1,113 @@
+@use '../../../styles/mixins.scss' as *;
+// footer
+.neve-footer{
+    padding: 0 var(--spacing-xs);
+    background-color: var(--black);
+    color: var(--light);
+    .footer-header{
+        display: flex;
+        flex-direction: column;
+        padding-top: 60px;
+        padding-bottom: 40px;
+        padding: 60px 0 40px;
+        row-gap: var(--spacing-s);
+        border-bottom: solid 1px var(--accent);
+        .footer-header-text-one{
+            line-height: 20px;
+            @include font('Default', 400, normal, 20px);
+            text-transform: uppercase; 
+        }
+        .footer-header-text-two{
+            @include font('Davinci', 400, normal, 70px); 
+            line-height: 70px;
+            text-transform: capitalize;
+            cursor: pointer;
+            @include arrow-after-mask();
+            &:hover{
+                @include arrow-after-mask-hover();
+            }
+        }
+    }
+    .footer-menu{
+         display: grid;
+         grid-template-columns: repeat(6, 1fr);
+         grid-auto-rows: auto;
+         gap: var(--spacing-xs);
+         padding: 40px 0px 60px;
+         .footer-header-text-one{
+            line-height: 20px;
+            @include font('Default', 400, normal, 20px);
+            text-transform: uppercase; 
+        }
+         .footer-social-icons{
+             display: flex;
+             flex-direction: row;
+             gap: var(--spacing-s);
+             margin-top: var(--spacing-s);
+             svg {
+                width: 24px;
+                height: 24px;
+             }
+             a:hover{
+                svg path{
+                    transition: fill 0.5s ease;
+                    fill: var(--hover);
+                }
+            }
+         }
+    }
+    .footer-credits{
+        @include font('Default', 400, normal, 15px); 
+        line-height: 15px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 40px 0 60px;
+        a:hover{
+            transition: color 0.5s ease;
+            color: var(--hover);
+        }
+        .footer-credits-logo{
+            display: flex;
+            flex-direction: column;
+            row-gap: var(--spacing-s);
+            .icon-link{
+                height: 36px;
+                width: 107px;
+            }
+        }
+        .footer-credits-text{
+            display: flex;
+            flex-direction: column;
+            row-gap: var(--spacing-xs);
+        }
+    }
+ }
+ @media (max-width: 640px) {
+    .neve-footer{
+        .footer-header{
+            .footer-header-text-one{
+                line-height: 15px;
+                font-size: 15px
+            }
+            .footer-header-text-two{
+                font-size: 35px;
+                line-height: 35px;
+                @include arrow-after-mask('right', 80px, 30px);
+            }
+        }
+        .footer-menu{
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-m);
+            padding: 0;
+            .ghost{
+                display: none;
+            }
+        }
+        .footer-credits{
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-m);
+        }
+    }
+ }

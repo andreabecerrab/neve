@@ -1,0 +1,42 @@
+// font mixin
+@mixin font($family: 'Default', $weight: 400, $style: normal, $size: 35px) {
+    font-family: $family, sans-serif;
+    font-weight: $weight;
+    font-style: $style;
+    font-size: $size;
+}
+// arrow translate
+// Base ::after mask
+@mixin arrow-after-mask($icon:'right', $width: 114px, $mask-size: 57px, $margin-left: 20px) {
+    &::after {
+        -webkit-mask-image: var(--icon-#{$icon});
+        mask-image: var(--icon-#{$icon});
+        -webkit-mask-size: contain;
+        -webkit-mask-position: 0 0;
+        mask-repeat: no-repeat;
+        background-color: var(--hover);
+        display: inline-block;
+        width: $width;
+        mask-position: center;
+        mask-size: 100% 100%;
+        vertical-align: middle;
+        content: '.';
+        margin-left: $margin-left;
+        mask-size: $mask-size;
+        -webkit-mask-position: left center; 
+        transition: 
+            -webkit-mask-position 0.5s ease, 
+            mask-position 0.5s ease,
+            background-color 0.3s ease;
+    }
+  }
+  
+  // Hover ::after mask
+  @mixin arrow-after-mask-hover($shift: 30px, $color:var(--light)) {
+    &::after {
+      -webkit-mask-position: #{$shift} center;
+      mask-position: #{$shift} center;
+      background-color: $color;
+    }
+  }
+  

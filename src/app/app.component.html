@@ -1,0 +1,119 @@
+<neve-header [config]="config.header"></neve-header>
+<main class="main">
+  <!-- Hero section -->
+  <section class="neve-hero">
+    <div class="img-container">
+      <!-- hero img -->
+      <figure>
+        <picture>
+          <source [srcset]="heroimgs" type="image/webp">
+          <img [src]="herosrc"
+            alt="Linecheck 2025 Coming Soon">
+        </picture>
+      </figure>
+      <!-- hero text -->
+      <h1 class="hero-text"> {{config.hero.title}} <br>{{config.hero.subtitle}}</h1>
+    </div>
+  </section>
+  <!-- Welcome -->
+  <section class="neve-welcome-container">
+    <!-- welcome text -->
+    <div class="neve-txt">
+      <h2>{{config.welcome.title}}</h2>
+      <div class="neve-welcome-p">
+        <p>
+          {{config.welcome.richText}}
+        </p>
+      </div>
+      <div class="neve-welcome-btn">
+        <ng-container *ngFor="let item of ctas; let i = index">
+          <neve-button [label]="item.label" [type]="item.style" [link]="item.url"></neve-button>
+        </ng-container>
+      </div>
+    </div>
+    <div class="neve-gallery">
+      <!-- row (4 columns) -->
+      <ng-container *ngFor="let item of gallery; let i = index">
+        <neve-image [src]="item.thumb">
+      </neve-image>
+      </ng-container>
+      <!-- row (2 columns) -->
+      <div class="col-2">
+        <neve-image
+          src="https://www.linecheck.it/wp-content/uploads/ikka_mirabelli_20241121_IMG_2215-1920x1280.jpg.webp"></neve-image>
+      </div>
+      <div class="col-2">
+        <neve-image
+          src="https://www.linecheck.it/wp-content/uploads/Linecheck_DAY3_FabianaAmato-368-1920x1280.jpg.webp"></neve-image>
+      </div>
+    </div>
+    <!-- Cross Link -->
+    <div class="neve-crosslink-container">
+      <ng-container *ngFor="let item of crosslinks; let isLast = last">
+        <neve-cross-link 
+          [primaryText]="item.label" 
+          [secondaryText]="item.title"
+          [type]="isLast ? 'secondary' : 'default'">
+        </neve-cross-link>
+      </ng-container>
+    </div>
+  </section>
+  <!-- News -->
+  <section>
+    <div class="neve-news-cotainer">
+      <h2>{{newHighlights.title}}</h2>
+      <div class="news-container">
+        <div class="neve-welcome-p">
+          <p>
+            {{newHighlights.description}}
+          </p>
+        </div>
+        <div class="neve-news-btn">
+          <neve-button [label]="newHighlights.cta.label" [link]="newHighlights.cta.url"></neve-button>
+          <div class="neve-carrousel-btn">
+            <neve-button type="icon-left"></neve-button>
+            <neve-button type="icon-right"></neve-button>
+          </div>
+        </div>
+        <div class="neve-carrousel">
+          <ng-container *ngFor="let item of newHighlightsItems;  let i = index">
+            <neve-card 
+              [description]="item.title" 
+              [categories]="item.categories"
+              [date]="item.dateLabel"
+              [img]="item.image"
+            ></neve-card>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Img / Text -->
+  <section>
+    <div class="neve-textimg-container">
+      <div class="img-container">
+        <figure>
+          <img
+            [src]="manifesto.image.src"
+            [alt]="manifesto.title" />
+        </figure>
+      </div>
+      <div class="text-container">
+        <h2>
+          {{manifesto.title}}
+        </h2>
+        <div class="text-desc">
+          <div class="neve-welcome-p">
+            <p>
+              {{manifesto.excerpt}}
+            </p>
+          </div>
+          <neve-button label="Read full manifesto"></neve-button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+<neve-footer [config]="config.footer"></neve-footer>
+<router-outlet />

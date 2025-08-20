@@ -1,0 +1,15 @@
+
+@use './styles/font.scss' as *;
+@use './styles/tokens.scss' as *;
+@use './styles/mixins.scss' as *;
+@use './styles/reset.scss' as *;
+
+// general styling
+h2, a, button span{ 
+    @include font('Default', 400, normal, 20px);
+    text-transform: uppercase;
+}
+p {
+    @include font('Davinci', 400, normal, 35px);
+    letter-spacing: -1.05px;
+}

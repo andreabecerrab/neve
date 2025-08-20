@@ -1,0 +1,62 @@
+@use '../../../styles/mixins.scss' as *;
+// crosslinks
+.neve-cross-link{
+    width: auto;
+    height: auto;
+    padding: 60px 40px 20px 20px;
+    background-color: var(--black);
+    color: var(--light);
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    cursor: pointer;
+    flex-direction: column;
+    row-gap: var(--spacing-s);
+    transition: background-color 0.7s ease;
+    .crosslink-title{
+        text-transform: uppercase;
+        @include font('Default', 400, normal, 20px);
+    }
+    .crosslink-link{
+        @include font('Davinci', 400, normal, 70px);
+        text-transform: capitalize;
+        letter-spacing: -0.03em;
+        line-height: 74px;
+        @include arrow-after-mask();
+    }
+}
+.neve-cross-link.secondary{
+    background-color: var(--accent);
+    color: var(--black);
+    ::after{
+        background-color: var(--black);
+    }
+}
+// interaction
+.neve-cross-link:hover{
+    background-color: var(--hover);
+    color: var(--black);
+    .crosslink-link{
+        @include arrow-after-mask-hover(30px, var(--black)); 
+    }
+}
+.neve-cross-link:focus{
+    outline: none;
+    box-shadow: none;
+    box-shadow: var(--focus-shadow-cl);
+}
+@media (max-width: 640px) {
+    .neve-cross-link{
+        padding: 20px 10px 10px 10px;
+        row-gap: var(--spacing-xs);
+        .crosslink-title{
+            line-height: 15px;
+            font-size: 15px
+        }
+        .crosslink-link{
+            line-height: 35px;
+           font-size: 35px;
+           @include arrow-after-mask('right', 80px, 30px);
+        }
+    }
+}

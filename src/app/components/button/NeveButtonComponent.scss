@@ -1,0 +1,54 @@
+@use '../../../styles/mixins.scss' as *;
+
+button {
+    width: auto;
+    height: 40px;
+    text-align: center;
+    padding: 0px 20px;
+    @include font('Default', 400, normal, 15px);
+    transition: background-color 0.7s ease;
+    cursor: pointer;
+}
+// colors
+.primary{
+    background-color: var(--black);
+    color: var(--light);
+}
+.secondary{
+    background-color: var(--accent);
+}
+.terciary{
+    background-color: var(--gray);
+}
+//  interactions
+button:hover{
+    background-color: var(--hover);
+    color: var(--black);
+}
+button:focus{
+    box-shadow: var(--focus-shadow);
+}
+button.terciary:focus{
+    box-shadow: var(--focus-shadow-terciary);
+}
+// arrow icon
+.icon-right{
+    @include arrow-after-mask('right', 35px, 35px, 0px);
+    background-color: var(--black);
+    &:hover::after{
+        background-color: var(--black);
+    }
+}
+.icon-left{
+    @include arrow-after-mask('left', 35px, 35px, 0px);
+    background-color: var(--black);
+    &:hover::after{
+        background-color: var(--black);
+    }
+}
+//  RESPONSIVE
+@media (max-width: 640px) {
+    button{
+        width: 100%;
+    }
+}

@@ -1,0 +1,60 @@
+
+// header
+.neve-header{
+    position: sticky;
+    top: 0;
+    z-index: 1000000;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-xs);
+    line-height: 20px;
+    .neve-figure{
+        width: 75px;
+        height: 20px;
+        svg{
+            .text, .icon {
+                opacity: 0;
+                filter: blur(4px);
+                animation: crossfade 10s infinite;
+              }
+            .text {
+                animation-delay: 0s;
+            }
+        
+            .icon {
+                animation-delay: 5s;
+            }
+            
+        }
+        
+        @keyframes crossfade {
+            0%   { opacity: 1; filter: blur(0); }
+            40%  { opacity: 1; filter: blur(0); } 
+            60%  { opacity: 0.2; filter: blur(4px); } 
+            70%  { opacity: 0; filter: blur(4px); } 
+            90%  { opacity: 0; filter: blur(4px); } 
+            100% { opacity: 1; filter: blur(0); }
+        }
+    }
+    // links
+    a, .toggle-menu{
+        height: 20px;
+    }
+    a:hover, .toggle-menu:hover{
+        border: 2px solid transparent;
+        text-decoration-color: var(--link-hover); 
+        transition: text-decoration-color transparent 0.9s ease;
+    }
+    button{
+        padding: 3px;
+        border: 2px solid transparent;
+        text-decoration-color: transparent;
+        &:focus{
+            padding: 3px;
+        }
+    }
+    a:focus, button:focus{
+        border: 2px solid var(--focus);
+    }
+}
