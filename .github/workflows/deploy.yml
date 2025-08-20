@@ -39,6 +39,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3.9.2
         with:
-          personal_token: ${{ secrets.GH_PAT }}   # token with repo permissions
+          token: ${{ secrets.GH_PAT }}  # token with repo permissions
           publish_dir: ./dist/neve/browser        # browser build folder
           publish_branch: gh-pages
