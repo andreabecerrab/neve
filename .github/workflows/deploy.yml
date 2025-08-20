@@ -29,7 +29,7 @@ jobs:
 
       # 4️⃣ Build Angular browser app with correct base-href for GitHub Pages
       - name: Build Angular app
-        run: ng build --configuration production --output-path=dist/neve/browser --base-href=/neve/
+        run: ng build
 
       # 5️⃣ Fix SPA routing by copying index.html to 404.html
       - name: Copy index.html to 404.html
