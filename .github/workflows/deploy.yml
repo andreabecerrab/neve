@@ -1,31 +1,44 @@
-name: Neve Deploy
+name: Deploy Angular App to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main  # deploy only when main is pushed
+
+permissions:
+  contents: write
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm ci
 
+      # 4️⃣ Build Angular browser app with correct base-href for GitHub Pages
       - name: Build Angular app
-        run: npm run build
+        run: ng build --configuration production --output-path=dist/neve/browser --base-href=/neve/
 
+      # 5️⃣ Fix SPA routing by copying index.html to 404.html
+      - name: Copy index.html to 404.html
+        run: cp dist/neve/browser/index.html dist/neve/browser/404.html
+
+      # 6️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3.9.2
+        uses: peaceiris/actions-gh-pages@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/neve
+          personal_token: ${{ secrets.GH_PAT }}   # token with repo permissions
+          publish_dir: ./dist/neve/browser        # browser build folder
+          publish_branch: gh-pages
