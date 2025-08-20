@@ -1,6 +1,6 @@
 
 export default {
-  basePath: 'https://andreabecerrab.github.io/neve',
+  basePath: '/',
   supportedLocales: {
   "en-US": ""
 },
