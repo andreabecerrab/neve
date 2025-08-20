@@ -1,59 +1,48 @@
-# Neve
+# Project README
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+## 🧸 Tech stack
+- angular
+- scss
+- ts
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
+## 🎨 Styling
+Styles applied in the following structure
+- General
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+font.scss  - font declared
+mixins.scss  - mixins for reusable styling
+reset.scss  - reset for defult html look and feel
+tokens.scss - main tokens for spacing, font etc.
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+- Inside app.component.scss
+  Divided in Sections
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
+Header
+Hero
+Welcome
+Gallery
+CrossLinks
+News
+Footer
 ```
+- Components - 
+  Inside each component to encapculate its styling.
+- Styling for web and mobile
+  
+## 🖼️ UI
+Created components for reusable usage. For example, (neve-button, neve-crosslink, neve-header etc.) inside components folder.
+Each component has its own .ts file and .scss file to encapculate behaviour and styling.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🌀 Accesibility
+Implemented dynamic styling for focus, hover, and other interactive states to enhance user feedback.
+Tested keyboard navigation through the site.
 
-## Running unit tests
+## 🎢 Data
+Embebed json inside app and fetch data from paylod.service.ts. "Fake" call to simulate fecth from and endpoint. 
+Created interfaces for each component sections. Models can be found inside models/model.ts.
+🔮Future: fetch from an exisint backend. For this 2 proposals.
+  1. Fetch a complete json for static content that doesn't change too much over time. Allow edition from a json-editor.
+  2. Create independent endpoint calls for each section for example news, images. (example: linecheck/news)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🚀 Deploy
+Use github action to deploy a static web app. (file: .github/workflows/deploy.yml)
