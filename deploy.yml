@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main  # deploy only when main is pushed
-
+permissions:
+  contents: write
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
