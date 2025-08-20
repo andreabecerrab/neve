@@ -4,8 +4,10 @@ on:
   push:
     branches:
       - main  # deploy only when main is pushed
+
 permissions:
   contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -26,8 +28,8 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-          uses: peaceiris/actions-gh-pages@v6
-          with:
+        uses: peaceiris/actions-gh-pages@v6
+        with:
           personal_token: ${{ secrets.GH_PAT }}
           publish_dir: ./dist/neve/browser
           publish_branch: gh-pages
