@@ -19,8 +19,28 @@ export class NeveHeaderComponent implements OnInit{
       svgUrl: ''
     }
   };
+  menuOpen = false;
+  menuTxt: string = 'Menu';
+
 
   ngOnInit(): void {
     
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    this.menuTxt =  this.menuOpen ? 'Close Menu': 'Menu';
+
+    if (this.menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+    this.menuTxt = 'Menu';
+    document.body.style.overflow = '';
   }
 }

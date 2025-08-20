@@ -1,10 +1,12 @@
 
+
+@use '../../../styles/mixins.scss' as *;
 // header
 .neve-header{
     position: sticky;
     top: 0;
     z-index: 1000000;
-    background-color: white;
+    background-color: var(--light);
     display: flex;
     justify-content: space-between;
     padding: var(--spacing-xs);
@@ -24,8 +26,7 @@
         
             .icon {
                 animation-delay: 5s;
-            }
-            
+            }  
         }
         
         @keyframes crossfade {
@@ -58,8 +59,64 @@
     }
     a:focus, button:focus{
         border: 2px solid var(--focus);
+    }   
+    &.open{
+        background-color: var(--black);
+        color: var(--light);
     }
 }
+// menu
+.full-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+    color: var(--light);
+  
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    .full-menu-nav ul {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+    }
+    
+    .full-menu-nav a {
+        @include font('Davinci', 400, italic, 70px); 
+        text-transform: lowercase;
+        text-decoration: none;
+        transition: color 0.2s;
+        &:hover{
+            color: var(--hover);
+        }
+    }
+    .full-menu-nav .open-link {
+        &:hover{
+            @include arrow-after-mask();
+            &::after{
+                background-color: var(--light);
+                height: 20px;
+                content: "";
+                display: inline-block;
+            }
+        }
+    }
+
+}
+.full-menu.open{
+    opacity: 1;
+    pointer-events: auto;
+}
+  
+  
 @media (max-width: 640px){
     .header-label{
         display: none;
