@@ -121,4 +121,9 @@
     .header-label{
         display: none;
     }
+    .full-menu{
+        .full-menu-nav a {
+            @include font('Davinci', 400, italic, 50px); 
+        }
+    }
 }
