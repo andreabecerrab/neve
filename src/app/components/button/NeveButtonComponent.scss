@@ -17,7 +17,7 @@ button {
 .secondary{
     background-color: var(--accent);
 }
-.terciary{
+.tertiary{
     background-color: var(--gray);
 }
 //  interactions
@@ -28,7 +28,7 @@ button:hover{
 button:focus{
     box-shadow: var(--focus-shadow);
 }
-button.terciary:focus{
+button.tertiary:focus{
     box-shadow: var(--focus-shadow-terciary);
 }
 // arrow icon
